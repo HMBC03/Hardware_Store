@@ -15,7 +15,6 @@ body{
 header h1{
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     text-align: center;
-    
     font-size: 65px;
     /* background-color: #000; */
     color: #fff;
@@ -208,8 +207,6 @@ header h1{
   padding: 3%;
 }
 .wrapperMini {
-  
-  
   position: relative;
 }
 
@@ -298,15 +295,42 @@ header h1{
 
 
 @media screen and (max-width: 900px) {
+  header h1{
+    font-size: 45px;
+  }
   .wrapperMini .carouselMini {
     grid-auto-columns: calc((100% / 3) - 9px);
   }
+  #slidercircular{
+    padding: 0%;
+  }
+  .wrapperMini i:first-child {
+    left: -1px;
+  }
+  
+  .wrapperMini i:last-child {
+    right: -1px;
+  }
+  .carouselMini .cardMini .imgMini img {
+    width: 100px;
+    height: 100px;
+    margin: 0;
+  }
+  .wrapperMini{
+    width: 100%;
+  }
+  
+  
 }
 
 @media screen and (max-width: 600px) {
-  .wrapperMini .carouselMini {
-    grid-auto-columns: 100%;
+  header h1{
+    font-size: 35px;
   }
+  .wrapperMini .carouselMini {
+    grid-auto-columns: 70%;
+  }
+  
 }
 /* SECCION RESPONSIVE */
 @media screen and (max-width: 850px) {
