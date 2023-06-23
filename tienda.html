@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Importa el archivo script.js -->
+    <script src="js/script.js" async></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <title>La Fabrica del Martillo</title>
+</head>
+<body>
+    
+    <header>
+        <h1>LA FABRICA DEL MARTILLO</h1>
+         <!-- SLIDER CIRCULAR  -->
+    <section id="slidercircular">
+        <div class="wrapperMini">
+            <i id="left" class="fa-solid fa-angle-left"></i>
+            <ul class="carouselMini">
+                <li class="cardMini">
+                    <div class="imgMini"><img src="Imagenes/bateria.jpg" alt="img" draggable="false"></div>
+                </li>
+                <li class="cardMini">
+                    <div class="imgMini"><img src="Imagenes/demoledor.webp" alt="img" draggable="false"></div>
+                    
+                </li>
+                <li class="cardMini">
+                    <div class="imgMini"><img src="Imagenes/destornillador.webp" alt="img" draggable="false"></div>
+                    
+                </li>
+                <li class="cardMini">
+                    <div class="imgMini"><img src="Imagenes/extintor.webp" alt="img" draggable="false"></div>
+                    
+                </li>
+                <li class="cardMini">
+                    <div class="imgMini"><img src="Imagenes/hammer.webp" alt="img" draggable="false"></div>
+                    
+                </li>
+                <li class="cardMini">
+                    <div class="imgMini"><img src="Imagenes/pulidora.webp" alt="img" draggable="false"></div>
+                    
+                </li>
+            </ul>
+            <i id="right" class="fa-solid fa-angle-right"></i>
+        </div>
+    </section>
+    </header>
+    
+    <section class="contenedor">
+        <div class="carrito" id="carrito">
+            <div class="header-carrito">
+                <h2>Productos</h2>
+            </div>
+
+            <div class="carrito-items">
+                <!-- Los elementos seleccionados se agregarán aquí -->
+            </div>
+
+            <div class="carrito-total">
+                <div class="fila">
+                    <strong>Total:</strong>
+                    <span class="carrito-precio-total">
+                        $100.000,00
+                    </span>
+                </div>
+                <button class="btn-pagar">Pagar <i class="fa-solid fa-bag-shopping"></i> </button>
+            </div>
+        </div>Imagenes
+        <!-- Contenedor de elementos -->
+        <div class="contenedor-items">
+
+            <!-- Primer elemento -->
+            <div class="item">
+                <span class="titulo-item">Lija industrial</span>
+                <img src="Imagenes/bateria.jpg" alt="" class="img-item">
+                <span class="precio-item">$120.000</span>
+                <button class="boton-item">Agregar</button>
+            </div>
+
+            <!-- Segundo elemento -->
+            <div class="item">
+                <span class="titulo-item">Martillo del Olimpo</span>
+                <img src="Imagenes/hammer.webp" alt="" class="img-item">
+                <span class="precio-item">$45.000</span>
+                <button class="boton-item">Agregar</button>
+            </div>
+
+            <!-- Tercer elemento -->
+            <div class="item">
+                <span class="titulo-item">MataFuegos</span>
+                <img src="Imagenes/extintor.webp" alt="" class="img-item">
+                <span class="precio-item">$85.000</span>
+                <button class="boton-item">Agregar</button>
+            </div>
+
+            <!-- Cuarto elemento -->
+            <div class="item">
+                <span class="titulo-item">Taladro Zonda</span>
+                <img src="Imagenes/taladro.webp" alt="" class="img-item">
+                <span class="precio-item">$608.000</span>
+                <button class="boton-item">Agregar</button>
+            </div>
+
+            <!-- Quinto elemento -->
+            <div class="item">
+                <span class="titulo-item">Pulidora Rompe pisos 3000</span>
+                <img src="Imagenes/pulidora.webp" alt="" class="img-item">
+                <span class="precio-item">$222.000</span>
+                <button class="boton-item">Agregar</button>
+            </div>
+
+            <!-- Sexto elemento -->
+            <div class="item">
+                <span class="titulo-item">Destroyer .50</span>
+                <img src="Imagenes/demoledor.webp" alt="" class="img-item">
+                <span class="precio-item">$1889000</span>
+                <button class="boton-item">Agregar</button>
+            </div>
+
+            <!-- Séptimo elemento -->
+            <div class="item">
+                <span class="titulo-item">Magnum</span>
+                <img src="Imagenes/destornillador.webp" alt="" class="img-item">
+                <span class="precio-item">$224.000</span>
+                <button class="boton-item">Agregar</button>
+            </div>
+
+            <!-- Octavo elemento -->
+            <div class="item">
+                <span class="titulo-item">Cañon de aire</span>
+                <img src="Imagenes/sopladora.webp" alt="" class="img-item">
+                <span class="precio-item">$820.000</span>
+                <button class="boton-item">Agregar</button>
+            </div>
+
+        </div>
+        
+       
+    </section>
+   
+</body>
+</html>
