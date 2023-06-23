@@ -99,8 +99,12 @@ h1 {
     
 }
 .productos .card{
+    
     display: flex;
     align-items: center;
+    height: auto;
+    margin: 5%;
+    padding: 6%;
 }
 .nuestros-productos .productos {
     text-align: center;
@@ -108,7 +112,7 @@ h1 {
 }
 
 .nuestros-productos img {
-    width: 40%;
+    width: 50%;
     height: 50%;
     border: none;
     border-radius: 30px;
@@ -123,13 +127,11 @@ h1 {
 
 
 }
-
 .nuestros-productos button {
     border-radius: 20px;
     background-color: black;
     color: white;
     width: 120%;
-    
     font-weight: bold;
     
     cursor: pointer;
@@ -138,8 +140,8 @@ h1 {
 }
 
 .nuestros-productos button:hover {
-    box-shadow: 0px 0px 40px #000;
-    font-size: 1.3rem;
+    box-shadow: 0px 0px 20px #000;
+ 
 
 }
 
@@ -234,3 +236,19 @@ footer {
 }
 
 /* --------------------------- Pequeñas pantallas --------------------------- */
+
+@media(max-width:900px) {
+    .sobre-nosotros{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    
+    }
+
+    .productos {
+        display: flex;
+        flex-direction: column;
+        
+    }
+    
+}
