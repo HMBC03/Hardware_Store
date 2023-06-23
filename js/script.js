@@ -1,89 +1,3 @@
-const wrapper = document.querySelector(".wrapperMini"); // Selecciona el elemento con la clase "wrapperMini"
-const carousel = document.querySelector(".carouselMini"); // Selecciona el elemento con la clase "carouselMini"
-const firstCardWidth = carousel.querySelector(".cardMini").offsetWidth; // Obtiene el ancho del primer elemento con la clase "cardMini" dentro del carousel
-const arrowBtns = document.querySelectorAll(".wrapperMini i"); // Selecciona todos los elementos <i> dentro del elemento con la clase "wrapperMini"
-const carouselChildrens = [...carousel.children]; // Obtiene todos los elementos hijos del carousel y los convierte en un array
-
-let isDragging = false; // Bandera para indicar si se está arrastrando
-let isAutoPlay = true; // Bandera para indicar si se reproduce automáticamente
-let startX, startScrollLeft, timeoutId;
-
-let cardPerView = Math.round(carousel.offsetWidth / firstCardWidth); // Calcula la cantidad de tarjetas visibles en el carousel
-
-// Inserta copias de las últimas tarjetas al inicio del carousel para el desplazamiento infinito
-carouselChildrens.slice(-cardPerView).reverse().forEach(card => {
-    carousel.insertAdjacentHTML("afterbegin", card.outerHTML);
-});
-
-// Inserta copias de las primeras tarjetas al final del carousel para el desplazamiento infinito
-carouselChildrens.slice(0, cardPerView).forEach(card => {
-    carousel.insertAdjacentHTML("beforeend", card.outerHTML);
-});
-
-carousel.classList.add("no-transition"); // Agrega una clase para deshabilitar las transiciones del carousel
-carousel.scrollLeft = carousel.offsetWidth; // Establece la posición de desplazamiento inicial para ocultar las tarjetas duplicadas en Firefox
-carousel.classList.remove("no-transition"); // Remueve la clase para habilitar las transiciones del carousel
-
-// Agrega event listeners a los botones de flecha para desplazar el carousel hacia la izquierda o la derecha
-arrowBtns.forEach(btn => {
-    btn.addEventListener("click", () => {
-        carousel.scrollLeft += btn.id == "left" ? -firstCardWidth : firstCardWidth;
-    });
-});
-
-const dragStart = (e) => {
-    isDragging = true; // Indica que se ha comenzado a arrastrar
-    carousel.classList.add("dragging"); // Agrega una clase para indicar que se está arrastrando
-    startX = e.pageX; // Guarda la posición inicial del cursor
-    startScrollLeft = carousel.scrollLeft; // Guarda la posición inicial de desplazamiento del carousel
-}
-
-const dragging = (e) => {
-    if (!isDragging) return; // Si no se está arrastrando, retorna
-    carousel.scrollLeft = startScrollLeft - (e.pageX - startX); // Actualiza la posición de desplazamiento del carousel basado en el movimiento del cursor
-}
-
-const dragStop = () => {
-    isDragging = false; // Indica que se ha dejado de arrastrar
-    carousel.classList.remove("dragging"); // Remueve la clase que indica que se está arrastrando
-}
-
-const infiniteScroll = () => {
-    if (carousel.scrollLeft === 0) {
-        carousel.classList.add("no-transition"); // Agrega una clase para deshabilitar las transiciones del carousel
-        carousel.scrollLeft = carousel.scrollWidth - (2 * carousel.offsetWidth); // Realiza un desplazamiento al final del carousel si se encuentra en el inicio
-        carousel.classList.remove("no-transition"); // Remueve la clase para habilitar las transiciones del carousel
-    } else if (Math.ceil(carousel.scrollLeft) === carousel.scrollWidth - carousel.offsetWidth) {
-        carousel.classList.add("no-transition"); // Agrega una clase para deshabilitar las transiciones del carousel
-        carousel.scrollLeft = carousel.offsetWidth; // Realiza un desplazamiento al inicio del carousel si se encuentra en el final
-        carousel.classList.remove("no-transition"); // Remueve la clase para habilitar las transiciones del carousel
-    }
-
-    clearTimeout(timeoutId);
-    if (!wrapper.matches(":hover")) autoPlay();
-}
-
-const autoPlay = () => {
-    if (window.innerWidth < 800 || !isAutoPlay) return; // Si la ventana es más pequeña que 800 o la reproducción automática está desactivada, retorna
-    timeoutId = setTimeout(() => carousel.scrollLeft += firstCardWidth, 2500); // Realiza un desplazamiento automático del carousel cada 2500 ms
-}
-autoPlay();
-
-carousel.addEventListener("mousedown", dragStart); // Agrega un event listener para el evento "mousedown" en el carousel
-carousel.addEventListener("mousemove", dragging); // Agrega un event listener para el evento "mousemove" en el carousel
-document.addEventListener("mouseup", dragStop); // Agrega un event listener para el evento "mouseup" en el documento
-carousel.addEventListener("scroll", infiniteScroll); // Agrega un event listener para el evento "scroll" en el carousel
-wrapper.addEventListener("mouseenter", () => clearTimeout(timeoutId)); // Agrega un event listener para el evento "mouseenter" en el wrapper para detener la reproducción automática
-wrapper.addEventListener("mouseleave", autoPlay); // Agrega un event listener para el evento "mouseleave" en el wrapper para reanudar la reproducción automática
-
-
-
-
-
-
-
-
-
 
 
 var carritoVisible = false; // Variable que indica si el carrito de compras está visible o no
@@ -93,6 +7,7 @@ if (document.readyState == 'loading') {
     document.addEventListener('DOMContentLoaded', ready); // Esperar a que el DOM se haya cargado completamente antes de llamar a la función 'ready'
 } else {
     ready(); // El DOM ya se ha cargado, llamar directamente a la función 'ready'
+    
 }
 
 function ready() {
@@ -309,3 +224,84 @@ function actualizarTotalCarrito() {
     // Mostrar el total en el carrito de compras
     document.getElementsByClassName('carrito-precio-total')[0].innerText = '$' + total.toLocaleString("es") + ",00";
 }
+
+
+//function carrusel(){
+    const wrapper = document.querySelector(".wrapperMini"); // Selecciona el elemento con la clase "wrapperMini"
+    const carousel = document.querySelector(".carouselMini"); // Selecciona el elemento con la clase "carouselMini"
+    const firstCardWidth = carousel.querySelector(".cardMini").offsetWidth; // Obtiene el ancho del primer elemento con la clase "cardMini" dentro del carousel
+    const arrowBtns = document.querySelectorAll(".wrapperMini i"); // Selecciona todos los elementos <i> dentro del elemento con la clase "wrapperMini"
+    const carouselChildrens = [...carousel.children]; // Obtiene todos los elementos hijos del carousel y los convierte en un array
+    
+    let isDragging = false; // Bandera para indicar si se está arrastrando
+    let isAutoPlay = true; // Bandera para indicar si se reproduce automáticamente
+    let startX, startScrollLeft, timeoutId;
+    
+    let cardPerView = Math.round(carousel.offsetWidth / firstCardWidth); // Calcula la cantidad de tarjetas visibles en el carousel
+    
+    // Inserta copias de las últimas tarjetas al inicio del carousel para el desplazamiento infinito
+    carouselChildrens.slice(-cardPerView).reverse().forEach(card => {
+        carousel.insertAdjacentHTML("afterbegin", card.outerHTML);
+    });
+    
+    // Inserta copias de las primeras tarjetas al final del carousel para el desplazamiento infinito
+    carouselChildrens.slice(0, cardPerView).forEach(card => {
+        carousel.insertAdjacentHTML("beforeend", card.outerHTML);
+    });
+    
+    carousel.classList.add("no-transition"); // Agrega una clase para deshabilitar las transiciones del carousel
+    carousel.scrollLeft = carousel.offsetWidth; // Establece la posición de desplazamiento inicial para ocultar las tarjetas duplicadas en Firefox
+    carousel.classList.remove("no-transition"); // Remueve la clase para habilitar las transiciones del carousel
+    
+    // Agrega event listeners a los botones de flecha para desplazar el carousel hacia la izquierda o la derecha
+    arrowBtns.forEach(btn => {
+        btn.addEventListener("click", () => {
+            carousel.scrollLeft += btn.id == "left" ? -firstCardWidth : firstCardWidth;
+        });
+    });
+    
+    const dragStart = (e) => {
+        isDragging = true; // Indica que se ha comenzado a arrastrar
+        carousel.classList.add("dragging"); // Agrega una clase para indicar que se está arrastrando
+        startX = e.pageX; // Guarda la posición inicial del cursor
+        startScrollLeft = carousel.scrollLeft; // Guarda la posición inicial de desplazamiento del carousel
+    }
+    
+    const dragging = (e) => {
+        if (!isDragging) return; // Si no se está arrastrando, retorna
+        carousel.scrollLeft = startScrollLeft - (e.pageX - startX); // Actualiza la posición de desplazamiento del carousel basado en el movimiento del cursor
+    }
+    
+    const dragStop = () => {
+        isDragging = false; // Indica que se ha dejado de arrastrar
+        carousel.classList.remove("dragging"); // Remueve la clase que indica que se está arrastrando
+    }
+    
+    const infiniteScroll = () => {
+        if (carousel.scrollLeft === 0) {
+            carousel.classList.add("no-transition"); // Agrega una clase para deshabilitar las transiciones del carousel
+            carousel.scrollLeft = carousel.scrollWidth - (2 * carousel.offsetWidth); // Realiza un desplazamiento al final del carousel si se encuentra en el inicio
+            carousel.classList.remove("no-transition"); // Remueve la clase para habilitar las transiciones del carousel
+        } else if (Math.ceil(carousel.scrollLeft) === carousel.scrollWidth - carousel.offsetWidth) {
+            carousel.classList.add("no-transition"); // Agrega una clase para deshabilitar las transiciones del carousel
+            carousel.scrollLeft = carousel.offsetWidth; // Realiza un desplazamiento al inicio del carousel si se encuentra en el final
+            carousel.classList.remove("no-transition"); // Remueve la clase para habilitar las transiciones del carousel
+        }
+    
+        clearTimeout(timeoutId);
+        if (!wrapper.matches(":hover")) autoPlay();
+    }
+    
+    const autoPlay = () => {
+        if (window.innerWidth < 800 || !isAutoPlay) return; // Si la ventana es más pequeña que 800 o la reproducción automática está desactivada, retorna
+        timeoutId = setTimeout(() => carousel.scrollLeft += firstCardWidth, 2500); // Realiza un desplazamiento automático del carousel cada 2500 ms
+    }
+    autoPlay();
+    
+    carousel.addEventListener("mousedown", dragStart); // Agrega un event listener para el evento "mousedown" en el carousel
+    carousel.addEventListener("mousemove", dragging); // Agrega un event listener para el evento "mousemove" en el carousel
+    document.addEventListener("mouseup", dragStop); // Agrega un event listener para el evento "mouseup" en el documento
+    carousel.addEventListener("scroll", infiniteScroll); // Agrega un event listener para el evento "scroll" en el carousel
+    wrapper.addEventListener("mouseenter", () => clearTimeout(timeoutId)); // Agrega un event listener para el evento "mouseenter" en el wrapper para detener la reproducción automática
+    wrapper.addEventListener("mouseleave", autoPlay); // Agrega un event listener para el evento "mouseleave" en el wrapper para reanudar la reproducción automática
+    

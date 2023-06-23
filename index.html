@@ -1,61 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hardware store Hack2</title>
+    <title>La Fabrica del Martillo</title>
 
     <!-- -------------------------------- Icono -------------------------------- -->
     <link rel="icon" href="./Imagenes/LogoIcon.png">
-
     <!-- -------------------------------- Libreria Bootstrap 5 --------------------------------- -->
-
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css">
     <!-- Enlace al archivo JavaScript de Bootstrap (requiere jQuery) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.min.js"></script>
-
     <!-- ------------------------------ link CSS ------------------------------- -->
-
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 
 </head>
 
 <body>
-
     <header>
-
         <!-- ------------------------- Bootstrap Barra de navegacion ------------------------- -->
-
-        <ul class="nav justify-content-center bavbar">
+        <ul class="nav justify-content-center navbar">
             <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="#">Inicio</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Galeria</a>
+                <a class="nav-link" href="./tienda.html">Tienda</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#contactoid">Contacto</a>
+                <a class="nav-link" href="#nosotros">Sobre Nosotros</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#sobre-nosotros">Sobre Nosotros</a>
+                <a class="nav-link" href="#contacto">Contacto</a>
             </li>
         </ul>
+    </header>
 
-
-        <!-- ----------------------------- Bootstrap Carrusel----------------------------- -->
-
+    <!-- ----------------------------- Bootstrap Carrusel----------------------------- -->
+    <section id="slider">
         <div id="carouselExample" class="carousel slide">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="./Imagenes/EmpresaLogoSlogan.png" class="estilo-Carrusel" alt="EmpresaLogoSlogan.png">
+                    <img src="./Imagenes/slider.jpg" class="estilo-Carrusel" alt="EmpresaLogoSlogan.png">
                 </div>
                 <div class="carousel-item">
-                    <img src="./Imagenes/MesaConHerramientas.jpg" class="estilo-Carrusel"
-                        alt="./Imagenes/MesaConHerramientas.jpg">
+                    <img src="./Imagenes/slider2.jpg" class="estilo-Carrusel" alt="./Imagenes/MesaConHerramientas.jpg">
                 </div>
                 <div class="carousel-item">
-                    <img src="./Imagenes/PersonaCoprando.jpg" class="estilo-Carrusel" alt="PersonaCoprando.jpg">
+                    <img src="./Imagenes/disenno.jpg" class="estilo-Carrusel" alt="PersonaCoprando.jpg">
                 </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
@@ -67,52 +59,66 @@
                 <span class="visually-hidden">Siguiente</span>
             </button>
         </div>
-
-
-        <!-- --------------------------- Sobre Nosotros ---------------------------- -->
-
-        <div id="sobre-nosotros">Sobre Nosotros</div>
-
-        <div class="nosotros">
-            <h4>Daniel Rivero <br> <br> Soy un profesional que se dedica a atender y asesorar a los clientes en la
-                compra de productos relacionados con la construcción, reparación y mantenimiento de diferentes tipos de
-                estructuras y proyectos.</h4>
-            <a href="https://github.com/orivero83"> <img src="./Imagenes/Daniel.jpeg" alt="Foto Daniel"> </a>
-
-            <a href="https://github.com/HMBC03"> <img src="./Imagenes/Hector.png" alt="Foto Hector"> </a>
-            <h4>Hector Beltran <br> <br> Mi principal objetivo es satisfacer las necesidades de los clientes y
-                proporcionarles soluciones adecuadas para sus proyectos de bricolaje, reparaciones o construcciones.
-            </h4>
+    </section>
+    <section class="nuestros-productos">
+        <div class="productos">
+            <div class="card">
+                <img src="./Imagenes/bateria.jpg" alt="Vision">
+                <p>Maxima eficiencia</p>
+                <h3>Lija rompe pisos</h3>
+                <a href="./tienda.html" target="_blank"><button>Comprar</button></a>
+            </div>
+            <div class="card">
+                <img src="./Imagenes/destornillador.webp" alt="Vision">
+                <p>Hasta el ultimo tornillo</p>
+                <h3>Magnum</h3>
+                <a href="./tienda.html" target="_blank"><button>Comprar</button></a>
+            </div>
         </div>
+    </section>
+    <!-- --------------------------- Sobre Nosotros ---------------------------- -->
 
+    <section id="nosotros">
+        <h1>Sobre Nosotros</h1>
+        <div class="sobre-nosotros">
+            <div class="empleado">
+                <h2>Daniel Rivero</h2>
+                <a href="https://github.com/orivero83"><img src="./Imagenes/Daniel.jpeg" alt="Foto Daniel"> </a>
+                <p>Soy un profesional que se dedica a atender y asesorar a los clientes en la
+                    compra de productos relacionados con la construcción, reparación y mantenimiento de diferentes tipos
+                    de
+                    estructuras y proyectos.</p>
+            </div>
+            <div class="empleado">
+                <h2>Héctor Beltrán</h2>
 
-        <!-- ------------------------------ Contacto ------------------------------- -->
+                <a href="https://github.com/HMBC03"> <img src="./Imagenes/Hector.png" alt="Foto Hector"> </a>
+                <p>Mi principal objetivo es satisfacer las necesidades de los clientes y
+                    proporcionarles soluciones adecuadas para sus proyectos de bricolaje, reparaciones o construcciones.
+                </p>
+            </div>
+        </div>
+    </section>
 
-        <h2 id="contactoid" class="contacto">Contacto</h2>
+    <!-- ------------------------------ Contacto ------------------------------- -->
+
+    <section id="contacto">
         <div class="contacto-form">
-            <form action="https://formsubmit.co/orivero83g@gmail.com" method="POST" >
-              <label for="nombre">Nombre:</label>
-              <input type="text" id="nombre" name="nombre" required>
-          
-              <label for="email">Email:</label>
-              <input type="email" id="email" name="email" required>
-          
-              <label for="mensaje">Mensaje:</label>
-              <textarea id="mensaje" name="mensaje" required></textarea>
-          
-              <input type="submit" value="Enviar">
+            <h1>Contacto</h1>
+            <form action="https://formsubmit.co/orivero83g@gmail.com" method="POST">
+                <input type="text" id="nombre" name="nombre" placeholder="Nombre:" required>
+                <input type="email" id="email" name="email" placeholder="Correo" required>
+                <textarea id="mensaje" name="mensaje" placeholder="Mensaje" required></textarea>
+                <input type="submit" value="Enviar">
             </form>
         </div>
-        <!-- ------------------------------- Footer / Creditos-------------------------------- -->
+    </section>
+    <!-- ------------------------------- Footer / Creditos-------------------------------- -->
 
-        <footer>
-
-            <span><a href="https://www.flaticon.com/free-icons/capacity" title="capacity icons">Capacity icons
-                    created
-                    by Freepik - Flaticon</a></span>
-
-            <span>&copy; Oscar Rivero y Hector Beltran 2023</span>
-        </footer>
+    <footer>
+        <h3>Hackaton 2023</h3>
+        <p>&copy; Oscar Rivero && Hector Beltran 2023</p>
+    </footer>
 
 </body>
 
